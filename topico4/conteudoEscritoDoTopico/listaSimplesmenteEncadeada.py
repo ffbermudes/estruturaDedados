@@ -38,6 +38,13 @@ class ListaSimplesmenteEncadeada:
 
     def removeLastNode(self):
         lastNodeRemove = self.inicio
-        while lastNodeRemove.proximo != None and lastNodeRemove.proximo.proximo != None:
+        if lastNodeRemove == None:
+            print("Não existem nós no momento.")
+            return
+        while lastNodeRemove.proximo.proximo != None:
             lastNodeRemove = lastNodeRemove.proximo
         lastNodeRemove.proximo = None
+    
+    def limpaLista(self):
+        while self.inicio != None:
+            self.deleteInicio()
