@@ -6,4 +6,9 @@ lista.newNodo(888)
 lista.newNodo(889)
 lista.newNodo(8888)
 lista.newNodo(6712)
+
+lista.removeLastNode()
+lista.removeLastNode()
+lista.deleteInicio()
+
 lista.escreveConteudo()

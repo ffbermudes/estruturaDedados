@@ -21,3 +21,23 @@ class ListaSimplesmenteEncadeada:
     def escreveConteudo(self):
         print(self.inicio)
         return self.inicio
+
+    def deleteInicio(self):
+        if not self.inicio:
+            print("A Lista está vazia")
+            return
+        
+        self.inicio = self.inicio.proximo
+
+    def removeFirstNode(self):
+        if self.inicio == None:
+            print("Não existem nós no momento.")
+            return
+        
+        self.inicio = self.inicio.proximo
+
+    def removeLastNode(self):
+        lastNodeRemove = self.inicio
+        while lastNodeRemove.proximo != None and lastNodeRemove.proximo.proximo != None:
+            lastNodeRemove = lastNodeRemove.proximo
+        lastNodeRemove.proximo = None
