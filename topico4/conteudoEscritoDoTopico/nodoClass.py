@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, dado = 0, next = None):
+    def __init__(self, dado, next = None):
         self.dado = dado
         self.proximo = next
 
@@ -8,5 +8,3 @@ class Node:
     
     def setProximo(self, proximoNodo):
         self.proximo = Node(proximoNodo)
-
-    

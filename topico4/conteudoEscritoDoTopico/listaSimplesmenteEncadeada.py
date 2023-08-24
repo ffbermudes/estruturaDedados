@@ -6,10 +6,18 @@ class ListaSimplesmenteEncadeada:
         self.inicio = nodo
         self.tamanhoDaLista = 0
 
-    def escreveConteudo(self) -> str:
-        mostrarNodos = ''
-        nodoAtual = self.inicio
-        while nodoAtual:
-            mostrarNodos += f'{nodoAtual} --> '
-            nodoAtual = nodoAtual.proximo
-        return mostrarNodos 
+    def newNodo(self, dadoNodo):
+        
+        if self.inicio == None:
+            self.inicio = Node(dadoNodo)
+            return
+        
+        actualNode = self.inicio
+        while actualNode.proximo is not None:
+            actualNode = actualNode.proximo
+        actualNode.proximo = Node(dadoNodo)
+        self.tamanhoDaLista +=1
+
+    def escreveConteudo(self):
+        print(self.inicio)
+        return self.inicio
