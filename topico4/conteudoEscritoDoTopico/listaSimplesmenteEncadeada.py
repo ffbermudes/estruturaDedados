@@ -35,6 +35,7 @@ class ListaSimplesmenteEncadeada:
             return
         
         self.inicio = self.inicio.proximo
+        self.tamanhoDaLista -= 1
 
     def removeLastNode(self):
         lastNodeRemove = self.inicio
@@ -44,7 +45,23 @@ class ListaSimplesmenteEncadeada:
         while lastNodeRemove.proximo.proximo != None:
             lastNodeRemove = lastNodeRemove.proximo
         lastNodeRemove.proximo = None
-    
+        self.tamanhoDaLista -= 1
+
     def limpaLista(self):
         while self.inicio != None:
             self.deleteInicio()
+
+        self.tamanhoDaLista = 0
+
+    def buscaNaLista(self, dadoBuscado):
+        findNode = self.inicio
+        if not findNode:
+            print("Lista está vazia")
+            return
+        
+        while findNode:
+            print(findNode.dado)
+            if findNode.dado == dadoBuscado:
+                print(f"Dado buscado localizado: {dadoBuscado} -> True")
+                return
+            findNode = findNode.proximo
