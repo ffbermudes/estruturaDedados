@@ -7,9 +7,23 @@ class ListaEncadeada:
 		self.tamanhoDaLista = 0
 
 	def insere(self, nome:str, gasto:float) -> None:
-		# {nome, valorDaConta} - Cliente
-		cliente = Cliente(nome, gasto) 
+		cliente = Cliente(nome, gasto)
+		'''
+		cliente = {
+			nome: nome,
+			valorDaConta: gasto
+		}
+		'''
 		no = Nodo(cliente)
+		'''
+		no = {
+			dado: {
+				nome,
+				valorDaConta
+			},
+			proximo: None
+		}
+		'''
 
 		if self.head == None:
 			self.head = no
