@@ -34,6 +34,7 @@ class ListaEncadeada:
 		while current_node.proximo != None:
 			current_node = current_node.proximo
 		current_node.proximo = no
+		self.tamanhoDaLista += 1
 
 		print("t")
 
