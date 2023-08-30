@@ -1,4 +1,3 @@
-from no import Nodo
 from cliente import Cliente
 
 class ListaEncadeada:
@@ -8,32 +7,16 @@ class ListaEncadeada:
 
 	def insere(self, nome:str, gasto:float) -> None:
 		cliente = Cliente(nome, gasto)
-		'''
-		cliente = {
-			nome: nome,
-			valorDaConta: gasto
-		}
-		'''
-		no = Nodo(cliente)
-		'''
-		no = {
-			dado: {
-				nome,
-				valorDaConta
-			},
-			proximo: None
-		}
-		'''
 
 		if self.head == None:
-			self.head = no
+			self.head = cliente
 			self.tamanhoDaLista += 1
 			return
 
 		current_node = self.head #Pointer
 		while current_node.proximo != None:
 			current_node = current_node.proximo
-		current_node.proximo = no
+		current_node.proximo = cliente
 		self.tamanhoDaLista += 1
 
 	def delete(self) -> None:
