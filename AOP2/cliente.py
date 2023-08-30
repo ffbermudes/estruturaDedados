@@ -1,10 +1,10 @@
 from no import Nodo
 
 class Cliente(Nodo):
-	def __init__(self, nome:str, valorDaConta:float, proximo:Nodo = None) -> None:
+	def __init__(self, nome:str, valorDaConta:float) -> None:
+		super().__init__()
 		self.nome = nome
 		self.valorDaConta = valorDaConta
-		self.proximo = proximo
 
 	def __repr__(self) -> str:
 		return f"{self.nome} - {self.valorDaConta}"

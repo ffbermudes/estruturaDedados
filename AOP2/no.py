@@ -1,5 +1,5 @@
 class Nodo:
-	def __init__(self, proximoNodo = None):
+	def __init__(self, proximoNodo:any = None):
 		self.proximo = proximoNodo
 
 	def __repr__(self):

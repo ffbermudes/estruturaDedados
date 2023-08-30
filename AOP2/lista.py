@@ -39,3 +39,12 @@ class ListaEncadeada:
 		totGastos += current_node.valorDaConta
 		media = totGastos/tamanhoLista
 		return f"A media de gastos do cliente é: R$ {media:.2f}"
+	
+	def __repr__(self) -> str:
+		current_node = self.head
+		content = str()
+		while current_node.proximo:
+			content += f"[{current_node.nome} - {current_node.valorDaConta}] -> "
+			current_node = current_node.proximo
+		content += f"[{current_node.nome} - {current_node.valorDaConta}]"
+		return content
