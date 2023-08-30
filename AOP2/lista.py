@@ -36,9 +36,6 @@ class ListaEncadeada:
 		current_node.proximo = no
 		self.tamanhoDaLista += 1
 
-		print("t")
-
-
 	def delete(self) -> None:
 		if self.head == None:
 			print("A lista já está vazia")
@@ -48,4 +45,14 @@ class ListaEncadeada:
 			self.tamanhoDaLista -= 1
 
 	def mediaGastos(self) -> float:
-		pass
+		current_node = self.head
+		totGastos = 0
+		tamanhoLista = self.tamanhoDaLista
+		while current_node.proximo != None:
+			totGastos += current_node.dado.valorDaConta
+			print(totGastos)
+			print(current_node.dado)
+			current_node = current_node.proximo
+		totGastos += current_node.dado.valorDaConta
+		media = totGastos/tamanhoLista
+		return f"A media de gastos do cliente é: R$ {media:.2f}"
