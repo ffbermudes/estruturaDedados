@@ -6,6 +6,6 @@ lista.insere("Filipe", 200.21)
 lista.insere("Joaquim", 50.32)
 lista.insere("Maria", 200.32)
 lista.insere("Rosalina", 300.42)
+lista.insere("Barbára", 390.52)
 
-resultado = lista.mediaGastos()
-print(resultado)
+print(lista)
