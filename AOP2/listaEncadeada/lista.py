@@ -33,8 +33,6 @@ class ListaEncadeada:
 		tamanhoLista = self.tamanhoDaLista
 		while current_node.proximo != None:
 			totGastos += current_node.valorDaConta
-			print(totGastos)
-			print(current_node)
 			current_node = current_node.proximo
 		totGastos += current_node.valorDaConta
 		media = totGastos/tamanhoLista
