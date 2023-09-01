@@ -1,4 +1,4 @@
-from AOP2.listaEncadeada.cliente import Cliente
+from cliente import Cliente
 
 class ListaEncadeada:
 	def __init__(self) -> None:

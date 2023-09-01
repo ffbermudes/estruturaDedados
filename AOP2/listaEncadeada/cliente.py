@@ -1,4 +1,4 @@
-from AOP2.listaEncadeada.no import Nodo
+from no import Nodo
 
 class Cliente(Nodo):
 	def __init__(self, nome:str, valorDaConta:float) -> None:

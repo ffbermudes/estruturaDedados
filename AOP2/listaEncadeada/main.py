@@ -1,4 +1,4 @@
-from AOP2.listaEncadeada.lista import ListaEncadeada
+from lista import ListaEncadeada
 
 lista = ListaEncadeada()
 lista.insere("Geraldo", 320.23)
