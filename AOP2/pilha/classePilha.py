@@ -5,6 +5,12 @@ class Pilha:
 	def push(self, item):
 		self.itens.insert(0, item)
 
+	def recebeStringCompleta(self, string:str):
+		for char in string:
+			self.push(char)
+		resultado = self.checkParenteses()
+		return resultado
+
 	def pop(self):
 		return self.itens.pop(0)
 
@@ -17,25 +23,57 @@ class Pilha:
 	def size(self):
 		return len(self.itens)
 
-	def checkParenteses(self):
+	def limpaLista(self):
+		while self.itens:
+			self.pop()
+	
+	def checkParenteses(self) -> bool:
 		pointer = self.itens
+		#Para poder ter acesso as elementos que foram inseridos primeiro.
+		pointer.reverse()
 		abriu = 0
 		fechou = 0
 		balanceado = bool()
 		for indice, elemento in enumerate(pointer):
-			if elemento == "(":
+			if elemento == ")" and indice == 0:
+				return False
+			elif elemento == "(":
 				abriu += 1
 			elif elemento == ")":
 				fechou += 1
 
-		resultado = abriu == fechou
-		print(resultado)
+		balanceado = abriu == fechou
+		return balanceado
 
-
+# Construida pilha
 pilha = Pilha()
-pilha.push("(")
-pilha.push("(")
-pilha.push(")")
-pilha.push(")")
 
-pilha.checkParenteses()
+#Primeira String
+resultado1 = pilha.recebeStringCompleta('(()()()())')
+print(resultado1)
+pilha.limpaLista()
+
+#Segunda String
+resultado2 = pilha.recebeStringCompleta('(((())))')
+pilha.limpaLista()
+print(resultado2)
+
+#Terceira String
+resultado3 = pilha.recebeStringCompleta('(()((())()))')
+pilha.limpaLista()
+print(resultado3)
+
+#Quarto String
+resultado4 = pilha.recebeStringCompleta('((((((())')
+pilha.limpaLista()
+print(resultado4)
+
+#Quinta String
+resultado5 = pilha.recebeStringCompleta('()))')
+pilha.limpaLista()
+print(resultado5)
+
+#Sexta String
+resultado6 = pilha.recebeStringCompleta('(()()(()')
+pilha.limpaLista()
+print(resultado6)
