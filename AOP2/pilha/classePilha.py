@@ -1,79 +1,40 @@
+class Node:
+    def __init__(self, dado:int) -> None:
+        self.dado = dado
+        self.anterior = None
+
+    def __repr__(self) -> str:
+        return f"{self.dado} -> {self.anterior}"
+    
 class Pilha:
-	def __init__(self) -> None:
-		self.itens = []
+    def __init__(self) -> None:
+        self.top = None
+        self.__size = 0
 
-	def push(self, item):
-		self.itens.insert(0, item)
+    def __repr__(self) -> str:
+        return str(self.top)
+    
+    def push(self, item:int):
+        node = Node(item)
+        node.anterior = self.top
+        self.top = node
+        self.__size += 1
 
-	def recebeStringCompleta(self, string:str):
-		for char in string:
-			self.push(char)
-		resultado = self.checkParenteses()
-		return resultado
+    def percorreTodaPilha(self) -> None:
+        pointer = self.top
+        lenPilha = self.__size
 
-	def pop(self):
-		return self.itens.pop(0)
+        for i in range(lenPilha):
+            print(pointer.dado)
+            pointer = pointer.anterior
+        print("Loop Terminado !")
 
-	def isEmpty(self):
-		return self.itens == []
+    def recebeStringCompleta(self, s:str) -> None:
+        print(s)
 
-	def peek(self):
-		return self.itens[0]
-
-	def size(self):
-		return len(self.itens)
-
-	def limpaLista(self):
-		while self.itens:
-			self.pop()
-	
-	def checkParenteses(self) -> bool:
-		pointer = self.itens
-		#Para poder ter acesso as elementos que foram inseridos primeiro.
-		pointer.reverse()
-		abriu = 0
-		fechou = 0
-		balanceado = bool()
-		for indice, elemento in enumerate(pointer):
-			if elemento == ")" and indice == 0:
-				return False
-			elif elemento == "(":
-				abriu += 1
-			elif elemento == ")":
-				fechou += 1
-
-		balanceado = abriu == fechou
-		return balanceado
-
-# Construida pilha
 pilha = Pilha()
-
-#Primeira String
-resultado1 = pilha.recebeStringCompleta('(()()()())')
-print(resultado1)
-pilha.limpaLista()
-
-#Segunda String
-resultado2 = pilha.recebeStringCompleta('(((())))')
-pilha.limpaLista()
-print(resultado2)
-
-#Terceira String
-resultado3 = pilha.recebeStringCompleta('(()((())()))')
-pilha.limpaLista()
-print(resultado3)
-
-#Quarto String
-resultado4 = pilha.recebeStringCompleta('((((((())')
-pilha.limpaLista()
-print(resultado4)
-
-#Quinta String
-resultado5 = pilha.recebeStringCompleta('()))')
-pilha.limpaLista()
-print(resultado5)
-
-#Sexta String
-resultado6 = pilha.recebeStringCompleta('(()()(()')
-pilha.limpaLista()
-print(resultado6)
+pilha.push(123)
+pilha.push(1234)
+pilha.push(12345)
+# pilha.percorreTodaPilha()
+pilha.recebeStringCompleta("TESTESÂO")
